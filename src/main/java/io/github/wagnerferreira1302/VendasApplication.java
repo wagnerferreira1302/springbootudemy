@@ -24,17 +24,13 @@ public class VendasApplication {
 	private Animal animal;
 	
 	@Autowired
-	//@Bean(value = "executarAnimal")
-	@Qualifier(value = "executarAnimal")
+	@Bean(value = "executarAnimal")
 	public CommandLineRunner executar() {
 		return args -> {
 			animal.fazerBarulho();
 		};
 	}
 	
-	public static void main(String[] args) {
-       SpringApplication.run(VendasApplication.class, args);
-	}
 	
 	@Value("${application.name}")
 	public String applicationName;
@@ -42,5 +38,9 @@ public class VendasApplication {
 	@GetMapping("/hello")
 	public String helloWorld() {
 		return applicationName;
+	}
+	
+	public static void main(String[] args) {
+		SpringApplication.run(VendasApplication.class, args);
 	}
 }
