@@ -23,7 +23,6 @@ public class VendasApplication {
 	@Cachorro
 	private Animal animal;
 	
-	@Autowired
 	@Bean(value = "executarAnimal")
 	public CommandLineRunner executar() {
 		return args -> {
